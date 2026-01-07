@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: ai-agent
+  ai:
+    dashscope:
+      api-key: sk-b278fb2336e74e5e99069e6c5845d877
+      chat:
+        options:
+          model: qwen-plus
+#    vectorstore:
+#      pgvector:
+#        index-type: hnsw
+#        distance-type: cosine_distance
+#        max-document-batch-size: 10000
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3
+#    datasource:
+#      url: jdbc:postgresql://rm-cn-elo4cvkyp0001x2o.rwlb.rds.aliyuncs.com/love_app
+#      username: clipg_root
+#      password: LHSqaz123
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+# springdoc-openapi
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.clipg.aiagent.controller
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: debug
+
+# searchApi
+search-api:
+  api-key: ff29fe6f177dab684ef2d3f26cf6eb9775f6e821
+
